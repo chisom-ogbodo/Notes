@@ -1,10 +1,14 @@
-from typing import Any, reveal_type
-
 from psycopg_pool import AsyncConnectionPool, ConnectionPool
 
-pool: ConnectionPool = ConnectionPool(conninfo='dbname=notesapi user=postgres')
+
+from notes_api.core import settings
+
+#settings = Settings()
+POSTGRES_DSN = f"postgresql://{settings.DB_USERNAME}:{settings.DB_PASSWORD}@{settings.DB_HOSTNAME}:{settings.DB_PORT}/{settings.DB_NAME}"
+pool: ConnectionPool = ConnectionPool(POSTGRES_DSN)
+#pool: ConnectionPool = ConnectionPool('dbname=notesapi user=postgres')
 #for trying out the async pool
-async_pool: AsyncConnectionPool = AsyncConnectionPool(conninfo='dbname=notesapi user=postgres')  
+async_pool: AsyncConnectionPool = AsyncConnectionPool(POSTGRES_DSN)  
 
 def get_conn():
     with pool.connection() as conn: 
@@ -12,5 +16,5 @@ def get_conn():
 
 # async db dependency function
 async def async_get_conn():
-    async with AsyncConnectionPool as async_conn:
+    async with async_pool.connection() as async_conn:
         yield async_conn
