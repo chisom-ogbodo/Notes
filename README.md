@@ -30,4 +30,4 @@ Contibutions are welcome to this project. If you find any issues or have an idea
 
 **Licence**
 
-This project is licenced under the terms of MIT. See  for more information
+This project is licenced under the terms of MIT. See https://opensource.org/license/MIT  for more information
