@@ -17,6 +17,7 @@ oauth_scheme = OAuth2PasswordBearer(tokenUrl='/login')
 router = APIRouter(prefix='/login', tags=['OAuth'])
 
 def create_access_token(data: dict, optional_expires: timedelta | None = None):
+    """Generates jwt access token for login"""
     token_data = data.copy()
     if optional_expires:
         expires = datetime.now(dt.UTC) + optional_expires
@@ -27,6 +28,7 @@ def create_access_token(data: dict, optional_expires: timedelta | None = None):
     return jwt_data
 
 def get_current_user(token=Depends(oauth_scheme)):
+    """Dependency function for the getting the current user accessing the api"""
     credential_error = HTTPException(
         detail='Invalid credentials', 
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -46,6 +48,7 @@ async def login_user(
     flow: Annotated[OAuth2PasswordRequestForm, Depends()], 
     conn=Depends(get_conn)
 ):
+    """Login endpoint"""
     email = flow.username
     user = await get_user(email, conn)
     if not user: 
