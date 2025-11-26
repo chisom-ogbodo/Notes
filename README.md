@@ -22,7 +22,7 @@ Users' password are stored in postgres database with good hashing algorithms
 
 1) Writes test coverage for the application
 2) Add database migration
-3) Implement offline usage with sqlite when internet 
+3) Implement offline usage with sqlite when there's no internet 
 
 **Contributions**
 
