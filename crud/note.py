@@ -2,17 +2,11 @@
 from psycopg import Connection
 
 from notes_api.schemas.notes import Notes, NotesUpdate
-
-async def crud_get_one(email: str, conn: Connection):
-    #sql = """SELECT * FROM notes WHERE note_id = %s"""
-    sql = """SELECT  FROM notes WHERE email = %s FETCH NEXT 1 ROWS ONLY"""
-    with conn.cursor() as cur:
-        cur.execute(sql, (email,))
-        val = cur.fetchone()
-        return val
     
-async def crud_retrieve(user_id: int, conn: Connection):
-    sql = """SELECT * FROM notes WHERE user_id = %s;"""
+async def crud_retrieve(user_id: int, conn: Connection, skip: int = 0, limit: int = 10):
+    sql = f"""SELECT * FROM notes
+    WHERE user_id = %s ORDER BY note_id 
+    OFFSET {skip} ROWS FETCH FIRST {limit} ROWS ONLY;"""
     with conn.cursor() as cur:
         cur.execute(sql, (user_id,))
         res = cur.fetchall()
