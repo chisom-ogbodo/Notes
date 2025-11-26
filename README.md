@@ -10,24 +10,24 @@ User registration
 Authentication and authorisation with jwt tokens
 Users' password are stored in postgres database with good hashing algorithms
 
-How to use
+**How to use**
 
-1) cloned the  repo git clone https://github.com/chisom-ogbodo/Notes
+1) cloned the  repo git clone https://github.com/chisom-ogbodo/Notes.git
 2) Navigate to the Notes directory cd Notes
 3) Create a virtual environment python3 -m venv .
 4) Install the dependencies 
 5) With everything set up, we can now run the app by uvicorn main:app
 
-To do
+**To do**
 
 Writes test coverage for the application
 Add database migration
 Implement offline usage with sqlite when internet 
 
-Contributions
+**Contributions**
 
 Contibutions are welcome to this project. If you find any issues or have an idea for improvement, feel free to open an issue or submit a pull request.
 
-Licence
+**Licence**
 
 This project is licenced under the terms of MIT. See  for more information
