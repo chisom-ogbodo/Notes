@@ -18,26 +18,23 @@ async def get_notes(user_id=Depends(get_current_user), conn = Depends(get_conn))
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Your don't notes currently")
     return {'notes': data}
 
-@router.get('/{note_id}')
-async def get_one(note_id: int, conn=Depends(get_conn)):
-    val = await crud_get_one(int(note_id), conn)
-    if not val:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail='Note not found')
-    return val
-
 @router.post('/create_note', status_code=status.HTTP_201_CREATED)
 async def create_note(note: Annotated[Notes, Body()], user_id=Depends(get_current_user), conn=Depends(get_conn)):
     await crud_create(user_id, Notes(**note.model_dump()), conn)
     return f'notes created successfully'.capitalize()
 
 @router.put('/update/{note_id}', status_code=status.HTTP_202_ACCEPTED)
-async def update_note(note_id: int, note: Annotated[NotesUpdate, Body()], user_id=Depends(get_current_user), 
-                      conn=Depends(get_conn)):
+async def update_note(
+    note_id: int, 
+    note: Annotated[NotesUpdate, Body()], 
+    user_id=Depends(get_current_user), 
+    conn=Depends(get_conn)
+):
     data = await crud_update(int(user_id), note_id, NotesUpdate(**note.model_dump()), conn)
-    if not data:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     #if user_id != note.user_id:
      #   raise HTTPException(status.HTTP_401_UNAUTHORIZED, detail='Sorry, but you do not own this note')
+    if not data:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
     return 'update successful'.capitalize()
     
 @router.delete('/delete/{note_id}', status_code=200)
