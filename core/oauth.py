@@ -28,7 +28,7 @@ def create_access_token(data: dict, optional_expires: timedelta | None = None):
     return jwt_data
 
 def get_current_user(token=Depends(oauth_scheme)):
-    """Dependency function for the getting the current user accessing the api"""
+    """Dependency function for getting the current user accessing the api"""
     credential_error = HTTPException(
         detail='Invalid credentials', 
         status_code=status.HTTP_401_UNAUTHORIZED,
