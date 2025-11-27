@@ -4,11 +4,11 @@ A  basic note keeping app built with fastapi and postgresql. This project is int
 
 ## Features
 
-Supports create, read, update and delete notes, the good old  crud operations.
-Multi user support, Logged in user only performs crud operations on notes they own. 
-User registration
-Authentication and authorisation with jwt tokens
-Users' password are stored in postgres database with good hashing algorithms
+- Supports create, read, update and delete notes, the good old  crud operations.
+- Multi user support, Logged in user only performs crud operations on notes they own. 
+- User registration
+- Authentication and authorisation with jwt tokens
+- Users' password are stored in postgres database with good hashing algorithms
 
 ## How to use
 
