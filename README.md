@@ -25,8 +25,10 @@ python3 -m venv venv
 ```
 
 3) Install the dependencies 
-4) With everything set up, we can now run the app by uvicorn main:app
-
+4) With everything set up, we can now run the app by
+```shell
+uvicorn main:app --reload
+```
 ## To do
 
 - [ ] Add roles: Admin and User
