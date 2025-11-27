@@ -12,7 +12,7 @@ A  basic note keeping app built with fastapi and postgresql. This project is int
 
 ## How to use
 
-1) cloned the repo and navigate tothe Notes directory
+1) cloned the repo and navigate to the Notes directory
 ```shell
 git clone https://github.com/chisom-ogbodo/Notes.git
 cd Notes
