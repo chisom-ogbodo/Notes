@@ -18,20 +18,21 @@ git clone https://github.com/chisom-ogbodo/Notes.git
 cd Notes
 ```
 
-4) Create a virtual environment
+2) Create a virtual environment
    
 ```shell
 python3 -m venv venv
 ```
 
-4) Install the dependencies 
-5) With everything set up, we can now run the app by uvicorn main:app
+3) Install the dependencies 
+4) With everything set up, we can now run the app by uvicorn main:app
 
 ## To do
 
-- Writes test coverage for the application
-- Add database migration
-- Implement offline usage with sqlite when there's no internet 
+- [ ] Add roles: Admin and User
+- [ ] Writes test coverage for the application
+- [ ] Add database migration
+- [ ] Implement offline usage with sqlite when there's no internet 
 
 ## Contributions
 
