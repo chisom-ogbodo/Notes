@@ -38,6 +38,6 @@ python3 -m venv venv
 
 Contibutions are welcome to this project. If you find any issues or have an idea for improvement, feel free to open an issue or submit a pull request.
 
-## Licence
+## License
 
 This project is licenced under the terms of MIT. See https://opensource.org/license/MIT  for more information
