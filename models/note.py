@@ -12,7 +12,7 @@ def create_schemas(conn: psycopg.Connection = Depends(conn)):
            NOW());""",
            """CREATE TABLE IF NOT EXISTS notes (note_id SERIAL PRIMARY KEY, user_id INT NOT NULL, title 
            VARCHAR(57), content TEXT NOT NULL, created_date TIMESTAMPTZ DEFAULT NOW(), 
-           FOREIGN KEY(user_id) REFERENCES users(user_id));"""
+           FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE CASCADE);"""
    ]
     with conn.cursor() as cur:
         for query in sql:
