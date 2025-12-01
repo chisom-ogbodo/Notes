@@ -3,7 +3,7 @@
 
 from fastapi import FastAPI
 
-from notes_api.core import oauth, config
+from notes_api.core import oauth
 #from notes_api.models.note import create_table
 from notes_api.routes import notes, users
 
@@ -15,6 +15,5 @@ app.include_router(oauth.router)
 
 @app.get('/')
 async def home():
-    print(config.settings)
     return f'Notes Api Home'
         
