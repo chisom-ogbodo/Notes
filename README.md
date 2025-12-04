@@ -13,20 +13,23 @@ A  basic note keeping app built with fastapi and postgresql. This project is int
 ## How to use
 
 1) clone the repo and navigate to the Notes directory
-```shell
+```bash
 git clone https://github.com/chisom-ogbodo/Notes.git
 cd Notes
 ```
 
 2) Create a virtual environment
    
-```shell
+```bash
 python3 -m venv venv
 ```
 
-3) Install the dependencies 
+3) Install the dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
 4) With everything set up, we can now run the app by
-```shell
+```bash
 uvicorn main:app --reload
 ```
 ## To do
